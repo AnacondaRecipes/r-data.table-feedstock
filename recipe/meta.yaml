@@ -1,4 +1,4 @@
-{% set version = '1.10.4' %}
+{% set version = '1.10.4-1' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/data.table_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/data.table/data.table_{{ version }}.tar.gz
-  sha256: 865fdf6aad389071ad063ec1c75a78ffc86eeb88bba011f3ea5281d243966b7a
+  sha256: 1ea6f9d45c94974f69b6918a248853ba24cbd80cdd1309b1be43eca65d6e7a75
 
 
   # patches:
@@ -70,7 +70,7 @@ extra:
 # The original CRAN metadata for this package was:
 
 # Package: data.table
-# Version: 1.10.4
+# Version: 1.10.4-1
 # Title: Extension of `data.frame`
 # Authors@R: c( person("Matt","Dowle",      role=c("aut","cre"), email="mattjdowle@gmail.com"), person("Arun","Srinivasan", role="aut", email="arunkumar.sriniv@gmail.com"), person("Jan","Gorecki",     role="ctb"), person("Tom","Short",       role="ctb"), person("Steve","Lianoglou", role="ctb"), person("Eduard","Antonyan", role="ctb") )
 # Depends: R (>= 3.0.0)
@@ -84,11 +84,11 @@ extra:
 # VignetteBuilder: knitr
 # ByteCompile: TRUE
 # NeedsCompilation: yes
-# Packaged: 2017-02-01 00:15:31.074 UTC; mdowle
+# Packaged: 2017-10-09 18:09:29.904 UTC; mdowle
 # Author: Matt Dowle [aut, cre], Arun Srinivasan [aut], Jan Gorecki [ctb], Tom Short [ctb], Steve Lianoglou [ctb], Eduard Antonyan [ctb]
 # Maintainer: Matt Dowle <mattjdowle@gmail.com>
 # Repository: CRAN
-# Date/Publication: 2017-02-01 15:52:19
+# Date/Publication: 2017-10-09 22:36:13 UTC
 
 # See
 # http://docs.continuum.io/conda/build.html for

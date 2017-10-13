@@ -33,12 +33,14 @@ requirements:
   build:
     - r-base
     - {{ compiler('c') }}        # [not win]
+    - llvm-openmp >=4.0.1        # [osx]
     - {{native}}toolchain        # [win]
     - {{posix}}filesystem        # [win]
     - {{posix}}make
 
   run:
     - r-base
+    - llvm-openmp >=4.0.1        # [osx]
     - {{native}}gcc-libs         # [win]
 
 test:

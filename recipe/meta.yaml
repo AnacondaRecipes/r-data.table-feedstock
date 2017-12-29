@@ -1,4 +1,4 @@
-{% set version = '1.10.4-1' %}
+{% set version = '1.10.4-3' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/data.table_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/data.table/data.table_{{ version }}.tar.gz
-  sha256: 1ea6f9d45c94974f69b6918a248853ba24cbd80cdd1309b1be43eca65d6e7a75
+  sha256: ba8b4f1b96b16e7f9765fc49c5028f21ef2210fc46cf962f4f7ea7901f9d8a89
 
 
   # patches:
@@ -33,15 +33,15 @@ requirements:
   build:
     - r-base
     - {{ compiler('c') }}        # [not win]
-    - llvm-openmp >=4.0.1        # [osx]
     - {{native}}toolchain        # [win]
     - {{posix}}filesystem        # [win]
     - {{posix}}make
+    - llvm-openmp >=4.0.1        # [osx]
 
   run:
     - r-base
-    - llvm-openmp >=4.0.1        # [osx]
     - {{native}}gcc-libs         # [win]
+    - llvm-openmp >=4.0.1        # [osx]
 
 test:
   commands:
@@ -72,7 +72,7 @@ extra:
 # The original CRAN metadata for this package was:
 
 # Package: data.table
-# Version: 1.10.4-1
+# Version: 1.10.4-3
 # Title: Extension of `data.frame`
 # Authors@R: c( person("Matt","Dowle",      role=c("aut","cre"), email="mattjdowle@gmail.com"), person("Arun","Srinivasan", role="aut", email="arunkumar.sriniv@gmail.com"), person("Jan","Gorecki",     role="ctb"), person("Tom","Short",       role="ctb"), person("Steve","Lianoglou", role="ctb"), person("Eduard","Antonyan", role="ctb") )
 # Depends: R (>= 3.0.0)
@@ -86,11 +86,11 @@ extra:
 # VignetteBuilder: knitr
 # ByteCompile: TRUE
 # NeedsCompilation: yes
-# Packaged: 2017-10-09 18:09:29.904 UTC; mdowle
+# Packaged: 2017-10-19 21:11:19.239 UTC; mdowle
 # Author: Matt Dowle [aut, cre], Arun Srinivasan [aut], Jan Gorecki [ctb], Tom Short [ctb], Steve Lianoglou [ctb], Eduard Antonyan [ctb]
 # Maintainer: Matt Dowle <mattjdowle@gmail.com>
 # Repository: CRAN
-# Date/Publication: 2017-10-09 22:36:13 UTC
+# Date/Publication: 2017-10-27 07:40:34 UTC
 
 # See
 # http://docs.continuum.io/conda/build.html for

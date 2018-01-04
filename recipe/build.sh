@@ -16,5 +16,5 @@ fi
 $R CMD INSTALL --build .
 
 if [[ ${HOST} =~ .*darwin.* ]]; then
-  rm -rf ~/.R
+  rm -rf ~/.R/Makevars
 fi

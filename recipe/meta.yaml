@@ -10,8 +10,8 @@ package:
 source:
   fn: data.table_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/data.table_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/data.table/data.table_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/data.table_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/data.table/data.table_{{ version }}.tar.gz
   sha256: ba8b4f1b96b16e7f9765fc49c5028f21ef2210fc46cf962f4f7ea7901f9d8a89
 
 

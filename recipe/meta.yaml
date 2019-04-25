@@ -1,4 +1,4 @@
-{% set version = '1.11.4' %}
+{% set version = '1.12.2' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -11,7 +11,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/data.table_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/data.table/data.table_{{ version }}.tar.gz
-  sha256: fdccf1dec3f38bb344163163decf3ffa0c0f8e2c70daa1bec8aac422716e81d5
+  sha256: db55c18f0d703a8bc1c806dd1f7551bb405cb867717f52ef9dd64405394d22f5
 
 build:
   merge_build_host: True  # [win]
@@ -23,7 +23,7 @@ build:
     - lib/R/lib/
     - lib/
 
-# Suggests: bit64, curl, knitr, xts, nanotime, zoo, reshape2
+# Suggests: bit64, curl, R.utils, knitr, xts, nanotime, zoo
 requirements:
   build:
     - {{ compiler('c') }}        # [not win]
@@ -33,16 +33,13 @@ requirements:
     - {{posix}}sed               # [win]
     - {{posix}}coreutils         # [win]
     - {{posix}}zip               # [win]
-    - llvm-openmp >=4.0.1        # [osx]
 
   host:
     - r-base
-    - llvm-openmp >=4.0.1        # [osx]
 
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
-    - llvm-openmp >=4.0.1        # [osx]
 
 test:
   commands:
@@ -73,12 +70,12 @@ extra:
 # The original CRAN metadata for this package was:
 
 # Package: data.table
-# Version: 1.11.4
+# Version: 1.12.2
 # Title: Extension of `data.frame`
-# Authors@R: c( person("Matt","Dowle",      role=c("aut","cre"), email="mattjdowle@gmail.com"), person("Arun","Srinivasan", role="aut", email="arunkumar.sriniv@gmail.com"), person("Jan","Gorecki",     role="ctb"), person("Michael","Chirico", role="ctb"), person("Pasha","Stetsenko", role="ctb"), person("Tom","Short",       role="ctb"), person("Steve","Lianoglou", role="ctb"), person("Eduard","Antonyan", role="ctb"), person("Markus","Bonsch",   role="ctb"), person("Hugh","Parsonage",  role="ctb"))
+# Authors@R: c( person("Matt","Dowle",           role=c("aut","cre"), email="mattjdowle@gmail.com"), person("Arun","Srinivasan",      role="aut",          email="arunkumar.sriniv@gmail.com"), person("Jan","Gorecki",          role="ctb"), person("Michael","Chirico",      role="ctb"), person("Pasha","Stetsenko",      role="ctb"), person("Tom","Short",            role="ctb"), person("Steve","Lianoglou",      role="ctb"), person("Eduard","Antonyan",      role="ctb"), person("Markus","Bonsch",        role="ctb"), person("Hugh","Parsonage",       role="ctb"), person("Scott","Ritchie",        role="ctb"), person("Kun","Ren",              role="ctb"), person("Xianying","Tan",         role="ctb"), person("Rick","Saporta",         role="ctb"), person("Otto","Seiskari",        role="ctb"), person("Xianghui","Dong",        role="ctb"), person("Michel","Lang",          role="ctb"), person("Watal","Iwasaki",        role="ctb"), person("Seth","Wenchel",         role="ctb"), person("Karl","Broman",          role="ctb"), person("Tobias","Schmidt",       role="ctb"), person("David","Arenburg",       role="ctb"), person("Ethan","Smith",          role="ctb"), person("Francois","Cocquemas",   role="ctb"), person("Matthieu","Gomez",       role="ctb"), person("Philippe","Chataignon",  role="ctb"), person("Declan","Groves",        role="ctb"), person("Daniel","Possenriede",   role="ctb"), person("Felipe","Parages",       role="ctb"), person("Denes","Toth",           role="ctb"), person("Mus","Yaramaz-David",    role="ctb"), person("Ayappan","Perumal",      role="ctb"), person("James","Sams",           role="ctb"), person("Martin","Morgan",        role="ctb"), person("Michael","Quinn",        role="ctb"), person("@javrucebo","",          role="ctb"), person("@marc-outins","",        role="ctb"))
 # Depends: R (>= 3.1.0)
 # Imports: methods
-# Suggests: bit64, curl, knitr, xts, nanotime, zoo, reshape2
+# Suggests: bit64, curl, R.utils, knitr, xts, nanotime, zoo
 # Description: Fast aggregation of large data (e.g. 100GB in RAM), fast ordered joins, fast add/modify/delete of columns by group using no copies at all, list columns, friendly and fast character-separated-value read/write. Offers a natural and flexible syntax, for faster development.
 # License: MPL-2.0 | file LICENSE
 # URL: http://r-datatable.com
@@ -86,11 +83,11 @@ extra:
 # VignetteBuilder: knitr
 # ByteCompile: TRUE
 # NeedsCompilation: yes
-# Packaged: 2018-05-27 00:01:00.467 UTC; mdowle
-# Author: Matt Dowle [aut, cre], Arun Srinivasan [aut], Jan Gorecki [ctb], Michael Chirico [ctb], Pasha Stetsenko [ctb], Tom Short [ctb], Steve Lianoglou [ctb], Eduard Antonyan [ctb], Markus Bonsch [ctb], Hugh Parsonage [ctb]
+# Packaged: 2019-03-28 19:54:17.679 UTC; mdowle
+# Author: Matt Dowle [aut, cre], Arun Srinivasan [aut], Jan Gorecki [ctb], Michael Chirico [ctb], Pasha Stetsenko [ctb], Tom Short [ctb], Steve Lianoglou [ctb], Eduard Antonyan [ctb], Markus Bonsch [ctb], Hugh Parsonage [ctb], Scott Ritchie [ctb], Kun Ren [ctb], Xianying Tan [ctb], Rick Saporta [ctb], Otto Seiskari [ctb], Xianghui Dong [ctb], Michel Lang [ctb], Watal Iwasaki [ctb], Seth Wenchel [ctb], Karl Broman [ctb], Tobias Schmidt [ctb], David Arenburg [ctb], Ethan Smith [ctb], Francois Cocquemas [ctb], Matthieu Gomez [ctb], Philippe Chataignon [ctb], Declan Groves [ctb], Daniel Possenriede [ctb], Felipe Parages [ctb], Denes Toth [ctb], Mus Yaramaz-David [ctb], Ayappan Perumal [ctb], James Sams [ctb], Martin Morgan [ctb], Michael Quinn [ctb], @javrucebo [ctb], @marc-outins [ctb]
 # Maintainer: Matt Dowle <mattjdowle@gmail.com>
 # Repository: CRAN
-# Date/Publication: 2018-05-27 16:34:37 UTC
+# Date/Publication: 2019-04-07 10:05:02 UTC
 
 # See
 # http://docs.continuum.io/conda/build.html for
